@@ -1,0 +1,77 @@
+{% include "BarCandidat/header.html.twig" with {id:id}%}
+
+
+{% block body %}
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="user-dashboard-info-box table-responsive pb-4 mb-0">
+          <table class="table manage-candidates-top mb-0">
+              
+            <thead>
+              <tr>
+                <th>Entretien</th>
+                <th>Société </th>
+                 <th>Poste </th>
+                <th>Date entretien</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+             {% for en in entret %}
+              <tr class="candidates-list">
+                <td class="title">
+                  {{en.nom_entretien}}
+                </td>
+                <td class="candidate-list-favourite-time">
+                 {{en.nom_societe}}
+                </td>
+                
+                <td class="candidate-list-favourite-time">
+                {{en.nom_poste}}
+                </td>
+
+                <td class="candidate-list-favourite-time">
+             {{en.date_entretien}} 
+                            </td>
+
+
+
+                <td class="candidate-list-favourite-time">
+                    <a href="{{ path('interview', {'ide': en.id}) }}" 
+                    class="btn btn-success" > Passer</a>
+                </td>
+
+
+
+       
+              </tr>
+            
+   
+                   {% endfor %}
+
+           
+            </tbody>
+          </table>
+        <div class="row">
+          <div class="col-12 text-center mt-3 mb-4 mt-sm-3">
+            <ul class="pagination justify-content-center mb-0">
+              <li class="page-item disabled"> <span class="page-link b-radius-none">Prev</span> </li>
+              <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">...</a></li>
+              <li class="page-item"><a class="page-link" href="#">25</a></li>
+              <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

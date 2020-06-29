@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from themes.potenzaglobalsolutions.com/html/jobber/my-resume.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Mar 2020 09:32:21 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Jobber - Job Board HTML5 Template" />
+    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Profile candidat</title>
+    <!-- Favicon -->
+    <link href="images/favicon.ico" rel="shortcut icon" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+    <!-- CSS Global Compulsory (Do not remove)-->
+    <link rel="stylesheet" href="/css/font-awesome/all.min.css" />
+    <link rel="stylesheet" href="/css/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" />
+    <!-- Page CSS Implementing Plugins (Remove the plugin CSS here if site does not use that feature)-->
+    <link rel="stylesheet" href="/css/datetimepicker/datetimepicker.min.css" />
+    <link rel="stylesheet" href="/css/select2/select2.css" />
+    <!-- Template Style -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  
+<!--======================== CV  candidat  =========================-->
+<section class="space-ptb">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="resume-base bg-light user-dashboard-info-box">
+              <div class="profile">
+                <div class="jobber-user-info">
+                  <div class="profile-avatar">
+                    <img class="img-fluid " src="/images/avatar/{{candidat.photo_candidat}}" alt="">
+                  </div>
+                  <div class="profile-avatar-info mt-3">
+                    <h5>{{candidat.prenom_candidat}}</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="about-candidate border-top">
+                <div class="candidate-info">
+                  <h6>Nom:</h6>
+                  <p>{{candidat.prenom_candidat}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Domaine:</h6>
+                  <p>{{candidat.domaine_candidat}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Téléphone:</h6>
+                  <p>{{candidat.tel_candidat}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Date de naissance:</h6>
+                  <p>{{candidat.date_naissance}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Adresse:</h6>
+                  <p>{{candidat.adresse}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Genre:</h6>
+                  <p>{{candidat.genre_candidat}}</p>
+                </div>
+                <div class="candidate-info">
+                  <h6>Linkedin:</h6>
+                  <p>{{candidat.linkedin}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="resume-experience pl-0">
+              <div class="timeline-box">
+                <h5 class="resume-experience-title">Experience profissionnelles:</h5>
+                
+                    {% for exp in experience_profissionnelles %}
+                    <div class="jobber-candidate-timeline">
+                  <div class="jobber-timeline-item mb-0">
+                    <div class="jobber-timeline-cricle">
+                      <i class="far fa-circle"></i>
+                    </div>
+                    <div class="jobber-timeline-info">
+                      <div class="dashboard-timeline-info">
+                        <span class="jobber-timeline-time">{{exp.date_debut}} - {{exp.date_fin}}</span>
+                        <h6 class="mb-2">{{exp.nom_exp}}</h6>
+                        <span>-{{exp.entreprise}}</span>
+                        <p class="mt-2">{{exp.description}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+              </div>
+        
+       
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--========================Fin CV candidat =========================-->
+
+    <!--=================================
+    Back To Top-->
+    <div id="back-to-top" class="back-to-top">
+      <i class="fas fa-angle-up"></i>
+    </div>
+    <!--=================================
+    Back To Top-->
+    
+    <!--=================================
+    Javascript -->
+    <!-- JS Global Compulsory (Do not remove)-->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/popper/popper.min.js"></script>
+    <script src="/js/bootstrap/bootstrap.min.js"></script>
+    <!-- Page JS Implementing Plugins (Remove the plugin script here if site does not use that feature)-->
+    <script src="/js/select2/select2.full.js"></script>
+    <script src="/js/datetimepicker/moment.min.js"></script>
+    <script src="/js/datetimepicker/datetimepicker.min.js"></script>
+    <!-- Template Scripts (Do not remove)-->
+    <script src="/js/custom.js"></script>
+  </body>
+
+<!-- Mirrored from themes.potenzaglobalsolutions.com/html/jobber/my-resume.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Mar 2020 09:32:21 GMT -->
+</html>

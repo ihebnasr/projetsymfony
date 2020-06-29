@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{%set y =0%}
+{%set z =0%}
+<section class="space-ptb bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="section-title text-center">
+        <h2 class="text-primary">Passer Entretien</h2>
+       </div>
+      </div>
+    
+    </div>
+  </div>
+</section>
+
+     <style>
+     .clear {
+    clear: both;
+}
+     </style>     
+
+<section class="space-ptb bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+
+
+          <form class="form-row" method="POST" action="{{ path('reponseCandidat', {'idee': id}) }}">
+<div class="clear">
+               {% for q in questions %} 
+               
+               
+               <br/> 
+               <h2> Question {{z+1}}:</h2> <br/> 
+            <h3> {{q.contenu}} </h3> <br/>
+            
+           {%set i =0%}
+            {%for p in propos %}
+    {%if q.id == p.id_question_id %}
+    
+         <div class="custom-control custom-checkbox">
+          {%set y =y+1 %}
+                <input type="checkbox" class="custom-control-input" id="__name{{y}}__"" name="check{{i}}[]" >
+               
+            <label class="custom-control-label" for="__name{{y}}__"">{{p.nom_prop}} check{{i}}{{y}} </label> <br/>
+             {%set i =i+1%}
+          </div>  
+          {% endif %}
+        
+ {% endfor %}
+          {% set z=z+1 %}
+          
+           
+           
+           {% endfor %}
+</div>
+<div class="clear">
+                  {% for qau in autrequestion %}  
+            <h2> Question {{z+1}}:</h2> <br/> 
+            <h3 > {{qau.contenu}}</h3>
+             <textarea class="form-control" name="reponse[]" rows="4"></textarea> 
+            
+           {% set z=z+1 %}
+           {% endfor %}
+           <br/>
+<button type="submit" href="/entretienpasser" class="btn btn-lg btn-primary">Enregistrer</button>
+</div>
+</form> 
+</div>
+</div>
+</section>
+{% endblock %}
+
+

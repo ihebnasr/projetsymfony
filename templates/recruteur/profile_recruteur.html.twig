@@ -1,0 +1,136 @@
+<!--==== intégration  de fichier BarRecruteur/header.html.twig en utilisant la fonction include() ====-->
+{% include 'BarRecruteur/header.html.twig' %}
+<!--========================Menu de recruteur =========================-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sticky-top secondary-menu-sticky-top">
+          <div class="secondary-menu">
+            <ul>
+             {# on a utulisés la fonction path()  pour créer un lien vers les pages qui peut le recruteur les consultées
+               et passez le nom de la route comme premier argument et les paramètres de la route comme deuxième argument  #} 
+          <li><a  class="active" href="{{ path('dashboard_recruteur', {'id': recruteur.id}) }}" >Tableau de bord</a></li>
+              <li><a  href="{{ path('profile_recruteur', {'id': recruteur.id}) }}" >Mon Profile</a></li>
+  <li  class=" dropdown">
+  <a  >Offre D'emploi</a>
+  <div class="dropdown-content">
+ <a  href="{{ path('offre_emploi', {'id': recruteur.id}) }}">Publier Offre d'emploi</a>
+  <a  href="{{ path('gererOffre_emploi', {'id': recruteur.id}) }}">Mes Offres d'emploi</a>
+  </div>
+</li>
+ <li  class=" dropdown">
+  <a  > Entretien</a>
+  <div class="dropdown-content">
+ <a  href="{{ path('planifierEntretien', {'id': recruteur.id}) }}">Planifier Entretien</a>
+  <a  href="{{ path('MesEntretiens', {'id': recruteur.id}) }}">Mes Entretiens</a>
+  </div>
+</li>
+               <li><a href="{{ path('candidatsPostule', {'id': recruteur.id}) }}">Candidates postulé</a></li>
+               <li><a >Statistiques</a></li>
+              
+                 <li><a >Déconnexion</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--========================Fin Menu  recruteur =========================-->
+<!--=================================  profil recruteur =======================-->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="user-dashboard-info-box">
+          <div class="section-title-02 mb-4">
+            <h4>Information Générale</h4>
+          </div>
+          
+         <form >
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Nom société</label>
+                <input type="text" class="form-control" disabled name="societe" value="{{recruteur.nomSociete}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Email</label>
+                <input type="email" class="form-control" disabled name="email" value="{{recruteur.emailRecruteur}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Nom </label>
+                <input type="text" class="form-control" disabled name="nomrecruteur" value="{{recruteur.nomRecruteur}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Prénom</label>
+                <input type="text" class="form-control" disabled name="prenomRecruteur" value="{{recruteur.prenomRecruteur}}">
+              </div>
+              <div class="form-group col-md-6">
+                <label>Cin </label>
+                <input type="text" class="form-control" disabled name="cinRecruteur" value="{{recruteur.cinRecruteur}}">
+              </div>
+           
+           
+              <div class="form-group col-md-6">
+                <label>Téléphone</label>
+                <input type="text" class="form-control" disabled name="telephone" value="{{recruteur.telephone}}">
+              </div>
+              <div class="form-group col-md-6 select-border">
+                <label>Domaine</label>
+                <input type="text" class="form-control" disabled name="domaine" value="{{recruteur.domaine}}">
+              </div>
+  
+              <div class="form-group col-md-6">
+                <label>Site web</label>
+                <input type="text" class="form-control" disabled name="lienSite" value="{{recruteur.lienSite}}">
+              </div>
+              <div class="form-group col-md-12 mb-0">
+                <label>Description</label>
+                <textarea class="form-control" rows="5" disabled name="description">{{recruteur.description}}</textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="user-dashboard-info-box">
+          <div class="section-title-02 mb-3">
+            <h4>Liens sociaux</h4>
+          </div>
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Facebook</label>
+                <input type="text" class="form-control" disabled name="lienFacebook" value="{{recruteur.lienFacebook}}">
+              </div>
+              <div class="form-group col-md-12 mb-0">
+                <label>Linkedin</label>
+                <input type="text" class="form-control" disabled name="lienLinkedin" value="{{recruteur.lienLinkedin}}">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="user-dashboard-info-box">
+          <div class="section-title-02 mb-3">
+            <h4>Adresse</h4>
+          </div>
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Enter Your  location</label>
+                <input type="text" class="form-control" disabled name="adresse" value="{{recruteur.adresse}}" placeholder="Enter Your  location">
+              </div>
+            </div>
+            <div class="location-map">
+           <iframe src="https://www.google.com/maps?q={{recruteur.adresse}}&output=embed"></iframe>
+            </div>
+         
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!--================================= fin profil recruteur =======================-->
+<!--==== intégration  de fichier BarRecruteur/footer.html.twig en utilisant la fonction include() ====-->
+{% include 'BarRecruteur/footer.html.twig' %}

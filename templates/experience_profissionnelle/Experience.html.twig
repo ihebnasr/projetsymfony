@@ -1,0 +1,244 @@
+{# template père base.html.twig  #}
+{% extends 'base.html.twig' %}
+{% block header %}
+{% include "BarCandidat/header.html.twig"  with {'id': id }%}
+{% endblock %}
+
+{# le block title est remplacé par l'enfant "experience" #}
+{% block title %} Experience{% endblock %}
+
+{% block body %}
+
+<div class="header-inner bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="candidates-user-info">
+          <div class="jobber-user-info">
+            <div class="profile-avatar">
+                <img class="img-fluid" src="/images/avatar/05.jpg" alt="avatar">
+              <i class="fas fa-pencil-alt"></i>
+            </div>
+            <div class="profile-avatar-info ml-4">
+              <h3>{{ candidat.username }}  {{ candidat.prenomCandidat }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+{% block blog  %}
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal13" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       <h5 class="modal-title" id="exampleModalLabel">Ajouter Experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+      
+  
+    {% if form is defined %}
+{{ form_start(form, {'action': path('experience_profissionnelle_index' ,{id:id}) })   }}
+
+
+     
+                   {{ form_row(form.nom_exp, {'attr': {'class': 'form-control','placeholder':'nom'}}) }}
+              
+
+
+           
+           <div class="row">
+              <div class="col-md-6 mb-3">
+               <div class="form-group">
+                   {{ form_row(form.date_fin, {'attr': {'class': 'form-control','placeholder':'date'}}) }}
+                </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                   <div class="form-group">
+                  {{ form_row(form.date_debut,{'attr': {'class': 'form-control','placeholder':'date '}}) }}
+                </div>
+                </div>
+        </div>
+                 <div class="row">
+             
+                <div class="col-md-6 mb-3">
+                   <div class="form-group">
+                  {{ form_row(form.description,{'attr': {'class': 'form-control','placeholder':'description '}}) }}
+                </div>
+                </div>
+
+                 <div class="col-md-6 mb-3">
+                   <div class="form-group">
+                  {{ form_row(form.entreprise,{'attr': {'class': 'form-control','placeholder':'entreprise '}}) }}
+                </div>
+                </div>
+
+        </div>
+
+         
+               
+
+            <div class="modal-footer">
+
+             {{ form_row(form.ajouter,{'attr': {'class': 'btn btn-primary'}}) }}
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+
+                        </div>
+{{ form_end(form) }}
+{% endif %}
+
+          </div>
+         
+                        </div>
+                    </div>
+                </div>
+ <!-- end Modal -->
+
+
+
+{% endblock %}
+
+
+  <!--=================================
+
+  
+
+
+
+
+
+
+
+    Dashboard Nav -->
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="sticky-top secondary-menu-sticky-top">
+              <div class="secondary-menu">
+                <ul class="list-unstyled mb-0">
+                   <li><a href= {{ path('candidat_edit', {id: id}) }}>Info Génerale </a></li>
+                 
+                  <li><a href= {{ path('experience_profissionnelle_index',{id: id}) }}>Info profisionnelle </a></li>
+
+                 <li><a href= {{ path('cv_index',{id:id}) }}>Mon CV</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=================================
+    Dashboard Nav -->
+
+
+    
+
+ 
+ 
+
+
+
+ <!--=================================
+    My Resume -->
+<section>
+  <div class="container">
+    <div class="row">
+     
+      <div class="col-md-12">
+      
+        <div class="user-dashboard-info-box">
+          <div class="dashboard-resume-title d-flex align-items-center">
+            <div class="section-title-02 mb-sm-3">
+              <h4 class="mb-0">experiences profissionnelles </h4>
+            </div>
+
+   <!-- Lorsqu'on clique sur  le bouton Ajouter Experience , modal ajouter experience  va s'affiché -->
+<a class="btn btn-md ml-sm-auto btn-primary" href="" data-toggle="modal" data-target="#exampleModal13"><i class="fa fa-plus"></i>Ajouter Experience </a>
+           
+          
+          </div>
+          <!--==  On affiche tous  les données des expriences de candidat connecté ==-->
+
+                  {% for experience_profissionnelle in experience_profissionnelles %}
+
+
+<!-- Les données des expriences !-->
+          <div class="collapse show" id="dateposted">
+          </div>
+          <div class="jobber-candidate-timeline mt-4">
+            <div class="jobber-timeline-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="jobber-timeline-item">
+              <div class="jobber-timeline-cricle">
+                <i class="far fa-circle"></i>
+              </div>
+              <div class="jobber-timeline-info">
+                <div class="dashboard-timeline-info">
+                  <div class="dashboard-timeline-edit">
+                    <ul class="list-unstyled d-flex">
+                     
+                       <!-- Lorsqu'on clique sur  le bouton Ajouter Experience , modal supprimer experience  va s'affiché -->
+                      <li><a  href="" data-toggle="modal" data-target="#Modaldelete{{experience_profissionnelle.id}}" class="text-danger" data-toggle="tooltip" title="Delete" style="margin-right:10px;"><i class="far fa-trash-alt"></i></a></li>
+
+
+
+
+
+               <!-- Modal Supprimer  Experience-->
+<div class="modal fade" id="Modaldelete{{experience_profissionnelle.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Supprimer cette Experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+         <p><span>Voulez-vous vraiment la supprimer <a href="#"></a> ? </span></p>
+
+          </div>
+          <div class="modal-footer">
+
+          <a  href="{{ path('experience_profissionnelle_delete', {'id': experience_profissionnelle.id,'idc':id}) }}"  class="text-danger"  >Supprimerr</a>
+                                <button type="button" class="btn btn-default " data-dismiss="modal">Annuler</button>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+ <!-- end Modal Supprimer  Experience -->
+
+                    </ul>
+                  </div>
+
+
+                <!-- Les données des expriences !-->
+                  <span class="jobber-timeline-time">{{ experience_profissionnelle.dateDebut ? experience_profissionnelle.dateDebut|date('Y-m-d') : '' }}</span>
+                 <span class="jobber-timeline-time">{{ experience_profissionnelle.dateFin ? experience_profissionnelle.dateFin|date('Y-m-d') : '' }}</span>
+                  <h6 class="mb-2">{{ experience_profissionnelle.nomExp }}</h6>
+                  <span>- {{ experience_profissionnelle.entreprise }}</span>
+                  <p class="mt-2">{{ experience_profissionnelle.description }}</p>
+                </div>
+
+</div>
+            </div>
+            </div>
+              {% endfor %}
+
+
+              {% endblock %}
+
+

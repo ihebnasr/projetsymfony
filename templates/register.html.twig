@@ -1,0 +1,127 @@
+{% extends 'baseh.html.twig' %}
+{% block blog %}
+
+<!--=================================
+inner banner -->
+<div class="header-inner bg-light text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-primary">S'inscrire</h2>
+        <ol class="breadcrumb mb-0 p-0">
+          <li class="breadcrumb-item"><a href="/home"> Acceuil </a></li>
+          <li class="breadcrumb-item active"> <i class="fas fa-chevron-right"></i> <span> Inscription </span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+<!--=================================
+inner banner -->
+
+<!--=================================
+Register -->
+<section class="space-ptb">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-8 col-lg-10 col-md-12">
+        <div class="login-register">
+         <div class="section-title">
+          <h4 class="text-center">Créer Votre Compte</h4>
+         </div>
+         
+            <ul class="nav nav-tabs nav-tabs-border d-flex" role="tablist">
+              <li class="nav-item mr-4">
+                <a class="nav-link active"  data-toggle="tab" href="#candidate" role="tab" >
+                  <div class="d-flex">
+                    <div class="tab-icon">
+                      <i class="flaticon-users"></i>
+                    </div>
+                    <div class="ml-3">
+                      <h6 class="mb-0">Candidat</h6>
+                      
+                    </div>
+                  </div>
+                </a>
+              </li>
+              
+            </ul>
+    
+          <div class="tab-content">
+            <div class="tab-pane active" id="candidate" role="tabpanel">
+{{ form_start(form) }}
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+ {{ form_row(form.username, { 'label':'Nom', 'attr': {'class': 'form-control'} }) }}
+                  </div>
+                  <div class="form-group col-md-6">
+                     {{ form_row(form.prenom_candidat, { 'label':'Prenom','attr': { 'class': 'form-control' } }  ) }}
+
+                  </div>
+                  <div class="form-group col-md-6">
+ {{ form_row(form.password, { 'label':'Mot de passe', 'attr': {'class': 'form-control','placeholder':'Mot de passe...' } }) }}
+                  </div>
+                  <div class="form-group col-md-6">
+{{ form_row(form.confirm_password, { 'label':'Confirmation mot de passe',
+                                      'attr':{'class': 'form-control','placeholder':'Répétez votre mot de passe...' } }) }}                  </div>
+                 
+                <div class="form-group col-md-6">
+ {{ form_row(form.date_naissance, { 'label':'Date naissance', 'attr': {'class': 'form-control','placeholder':'01/01/1990...' } }) }}
+                  </div>
+                  <div class="form-group col-md-6">
+                     {{ form_row(form.tel_candidat, { 'attr': { 'class': 'form-control' ,'placeholder': 'Telephone...' } }  ) }}
+
+                  </div>
+
+ <div class="form-group col-md-6">
+ {{ form_row(form.domaine_candidat, { 'label':'Domaine', 'attr': {'class': 'form-control','placeholder':'Nom d\'utilisateur...' } }) }}
+                  </div>
+                  <div class="form-group col-md-6">
+                     {{ form_row(form.adresse, { 'attr': { 'class': 'form-control' ,'placeholder': 'Adresse...' } }  ) }}
+
+                  </div>
+
+
+                  <div class="form-group col-md-6">
+ {{ form_row(form.linkedin, { 'label':'Linkedin', 'attr': {'class': 'form-control','placeholder':'linkedin...' } }) }}
+                  </div>
+                  <div class="form-group col-md-6">
+                     {{ form_row(form.genre_candidat, { 'attr': { 'class': 'form-control' ,'placeholder': 'Femme/homme...' } }  ) }}
+
+                  </div>
+
+                    <div class="form-group col-md-6">
+ {{ form_row(form.email, { 'label':'Email', 'attr': {'class': 'form-control','placeholder':'user@gmail.com...' } }) }}
+                  </div>
+                  <div class="form-group col-md-6">
+                     {{ form_row(form.photo_candidat, { 'attr': { 'class': 'form-control' ,'placeholder': 'photo...' } }  ) }}
+
+                  </div>
+
+
+                 
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6">
+  <button type="submit" class="btn btn-success">Inscription</button>
+                  </div>
+                  <div class="col-md-6 text-md-right mt-2 text-center">
+                    <p>vous avez un compte? <a href="/">Connectez-vous</a></p>
+                  </div>
+                </div>
+ {{ form_end(form) }}
+            </div>
+           
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--=================================
+Register -->
+
+
+
+{% endblock  %}

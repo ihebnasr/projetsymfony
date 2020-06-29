@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Jobber - Job Board HTML5 Template" />
+    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} Jobber - Job Board HTML5 Template{% endblock %}</title>
+
+    <!-- Favicon -->
+    
+ {% block header %}
+
+ {% endblock %}
+ 
+         {% block stylesheets %}
+         <link href="/images/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
+   <!-- CSS Global Compulsory (Do not remove)-->
+    <link rel="stylesheet" href="{{asset ('css/font-awesome/all.min.css') }}" />
+    <link rel="stylesheet" href="{{asset ('css/flaticon/flaticon.css') }}" />
+    <link rel="stylesheet" href="{{asset ('css/bootstrap/bootstrap.min.css') }}" />
+
+    <!-- Page CSS Implementing Plugins (Remove the plugin CSS here if site does not use that feature)-->
+    <link rel="stylesheet" href=" {{asset ('css/owl-carousel/owl.carousel.min.css') }} " />
+    <link rel="stylesheet" href="{{asset ('css/magnific-popup/magnific-popup.css') }}" />
+
+    <!-- Template Style -->
+    <link rel="stylesheet" href="{{asset ('css/style.css') }}" />
+        {% endblock %}
+    </head>
+    <body>
+    {% block body %}
+   
+<!--=================================
+Header -->
+ {% block blog  %}
+ {% endblock %}
+
+ 
+<!--=================================
+Footer-->
+{% endblock %}
+        {% block javascripts %}
+      <script src="{{asset ('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{asset ('js/popper/popper.min.js') }}"></script>
+    <script src="{{asset ('js/bootstrap/bootstrap.min.js') }}"></script>
+
+    <!-- Page JS Implementing Plugins (Remove the plugin script here if site does not use that feature)-->
+    <script src="{{asset ('js/jquery.appear.js') }}"></script>
+    <script src="{{asset ('js/counter/jquery.countTo.js') }}"></script>
+    <script src="{{asset ('js/owl-carousel/owl-carousel.min.js') }}"></script>
+    <script src="{{asset ('js/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+
+    <!-- Template Scripts (Do not remove)-->
+    <script src="{{asset ('js/custom.js') }}"></script>
+        {% endblock %}
+          
+    </body>
+</html>

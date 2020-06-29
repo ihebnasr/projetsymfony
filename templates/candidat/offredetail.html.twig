@@ -1,0 +1,160 @@
+
+{% extends 'base.html.twig' %}
+
+
+{% block header %}
+{% include "BarCandidat/header.html.twig"  with {'id': id }%}
+{% endblock %}
+
+
+{% block body %}
+
+<!--=================================
+job list -->
+<section class="space-ptb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="job-list border">
+              <div class=" job-list-logo">
+                <img class="img-fluid" src="/images/svg/10.svg" alt="">
+              </div>
+              <div class="job-list-details">
+                <div class="job-list-info">
+                  <div class="job-list-title">
+                    <h5 >{{offre.nom_poste}}</h5>
+                  </div>
+                  <div class="job-list-option">
+                    <ul class="list-unstyled">
+                      <li><i class="fas fa-phone fa-flip-horizontal fa-fw"></i><span class="pl-2">{{offre.telephone}}</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="border p-4 mt-4 mt-lg-5">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 mb-4">
+              <div class="d-flex">
+                <i class="font-xll text-primary align-self-center flaticon-debit-card"></i>
+                <div class="feature-info-content pl-3">
+                  <label class="mb-1"> Salaire offert</label>
+                  <span class="mb-0 font-weight-bold d-block text-dark">{{offre.salaire}} DT</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-6 mb-4">
+              <div class="d-flex">
+                <i class="font-xll text-primary align-self-center flaticon-bar-chart"></i>
+                <div class="feature-info-content pl-3">
+                  <label class="mb-1">Type salaire</label>
+                  <span class="mb-0 font-weight-bold d-block text-dark">{{offre.type_salaire}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 mb-md-0 mb-4">
+              <div class="d-flex">
+                <i class="font-xll text-primary align-self-center flaticon-apartment"></i>
+                <div class="feature-info-content pl-3">
+                  <label class="mb-1">Societé</label>
+                  <span class="mb-0 font-weight-bold d-block text-dark">{{offre.nom_societe}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 mb-sm-0 mb-4">
+              <div class="d-flex">
+                <i class="font-xll text-primary align-self-center flaticon-medal"></i>
+                <div class="feature-info-content pl-3">
+                  <label class="mb-1">Experience</label>
+                  <span class="mb-0 font-weight-bold d-block text-dark">2 Years</span>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="my-4 my-lg-5">
+          <h5 class="mb-3 mb-md-4"> Description de L'offre</h5>
+          <p class="font-italic">{{offre.description}}</p>
+        </div>
+        <hr>
+        <div class="my-4 my-lg-5">
+          <h5 class="mb-3 mb-md-4">Profil demandé</h5>
+          <ul class="list-unstyled list-style">
+{{offre.profil_recherche}}
+          </ul>
+        </div>
+        <hr>
+        <div class="mt-4 mt-lg-5">
+          <h5 class="mb-3 mb-md-4">Exigences </h5>
+          <ul class="list-unstyled list-style mb-4 mb-lg-0">
+{{offre.exigence}}
+          </ul>
+        </div>
+      </div>
+      <!--=================================
+      sidebar -->
+      <div class="col-lg-4">
+        <div class="sidebar mb-0">
+          <div class="widget">
+          </div>
+          <div class="widget">
+            <div class="company-detail-meta">
+             
+            </div>
+          </div>
+          <div class="widget">
+            <div class="company-address widget-box">
+              <div class="company-address-map">
+                <iframe src="https://www.google.com/maps/embed?q={{offre.adresse}}&output=embed"  height="230" allowfullscreen></iframe>
+
+              </div>
+              <ul class="list-unstyled mt-3">
+                <li><a href="#"><i class="fas fa-link fa-fw"></i><span class="pl-2">{{offre.lien_site}}</span></a></li>
+                <li><a href="tel:+905389635487"><i class="fas fa-phone fa-flip-horizontal fa-fw"></i><span class="pl-2">{{offre.telephone}}</span></a></li>
+                <li><a href="mailto:ali.potenza@job.com"><i class="fas fa-envelope fa-fw"></i><span class="pl-2">{{offre.email_recruteur}}</span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="widget">
+            <div class="jobber-company-view">
+              <ul class="list-unstyled">
+                <li>
+                  <div class="widget-box">
+                    <div class="d-flex">
+                      <i class="flaticon-clock fa-2x fa-fw text-primary"></i>
+                      <span class="pl-3">{{offre.date_expiration}}</span>
+                    </div>
+                  </div>
+                </li>
+               
+                <li>
+                  <div class="widget-box">
+                    <div class="d-flex">
+                      <i class="flaticon-personal-profile fa-2x fa-fw text-primary"></i>
+                      <span class="pl-3">{{offre.description}}</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--=================================
+      sidebar -->
+    </div>
+  </div>
+</section>
+<!--=================================
+job list -->
+
+
+
+{% endblock %}
